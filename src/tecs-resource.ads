@@ -1,31 +1,35 @@
 generic
    type Resource_Type is private;
-package TECS.Resource is
+package Tecs.Resource is
 
-   procedure Add (Resource : Resource_Type);
-   procedure Set (Resource : Resource_Type);
-   procedure Update(F: not null access procedure (Resource : in out Resource_Type));
-   procedure Remove;
-   function Get return Resource_Type;
+   type Storage_Type is private;
 
-   function Not_Empty return Boolean;
-   function Is_Added return Boolean;
-   function Is_Removed return Boolean;
-   function Is_Updated return Boolean;
+   procedure Add (Storage : in out Storage_Type; Resource : Resource_Type);
+   procedure Set (Storage : in out Storage_Type; Resource : Resource_Type);
+   procedure Update
+     (Storage : in out Storage_Type;
+      F       : not null access procedure (Resource : in out Resource_Type));
+   procedure Remove (Storage : in out Storage_Type);
+   function Get (Storage : Storage_Type) return Resource_Type;
 
-   procedure Flush;
+   function Not_Empty (Storage : Storage_Type) return Boolean;
+   function Is_Added (Storage : Storage_Type) return Boolean;
+   function Is_Removed (Storage : Storage_Type) return Boolean;
+   function Is_Updated (Storage : Storage_Type) return Boolean;
+
+   procedure Flush (Storage : in out Storage_Type);
 
 private
 
-   Exists  : Boolean := False;
-   Added   : Boolean := False;
-   Removed : Boolean := False;
-   Updated : Boolean := False;
+   type Storage_Type is record
+      Exists    : Boolean := False;
+      Added     : Boolean := False;
+      Removed   : Boolean := False;
+      Updated   : Boolean := False;
+      To_Add    : Boolean := False;
+      To_Remove : Boolean := False;
+      To_Update : Boolean := False;
+      Value     : Resource_Type;
+   end record;
 
-   To_Add    : Boolean := False;
-   To_Remove : Boolean := False;
-   To_Update : Boolean := False;
-
-   Value : Resource_Type;
-
-end TECS.Resource;
+end Tecs.Resource;
