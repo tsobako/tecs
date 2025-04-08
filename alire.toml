@@ -1,6 +1,6 @@
 name = "tecs"
 description = "A library with another ECS implmentation"
-version = "0.2.0-dev"
+version = "0.3.0-dev"
 
 authors = ["Ihar Tsalka"]
 maintainers = ["Ihar Tsalka <git@tsobako.me>"]
