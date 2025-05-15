@@ -7,13 +7,10 @@ package Tecs is
 
    type EntityStorage is private;
 
-
-
    function EntityIdHash (Element : EntityId) return Ada.Containers.Hash_Type;
 
    function EntityIdEquivalent_Elements
      (Left, Right : EntityId) return Boolean;
-
 
    package EntityVectorPackage is new Ada.Containers.Vectors
      (Index_Type => Natural, Element_Type => EntityId);

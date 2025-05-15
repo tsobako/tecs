@@ -8,43 +8,43 @@ with Ada.Containers.Ordered_Sets;
 
 generic
    type Element_Type is private;
-package TECS.Component.DataStorage is
+package Tecs.Component.DataStorage is
 
    type Storage is private;
 
    type Entity_Cursor is private;
 
    procedure Add
-     (Components : in out Storage; Id : TECS.EntityId; A : Element_Type);
+     (Components : in out Storage; Id : Tecs.EntityId; A : Element_Type);
    procedure Update
-     (Components : in out Storage; Id : TECS.EntityId; A : Element_Type);
-   procedure Remove (Components : in out Storage; Id : TECS.EntityId);
-   function Get (Components : Storage; Id : TECS.EntityId) return Element_Type;
-   function Contains (Components : Storage; Id : TECS.EntityId) return Boolean;
+     (Components : in out Storage; Id : Tecs.EntityId; A : Element_Type);
+   procedure Remove (Components : in out Storage; Id : Tecs.EntityId);
+   function Get (Components : Storage; Id : Tecs.EntityId) return Element_Type;
+   function Contains (Components : Storage; Id : Tecs.EntityId) return Boolean;
    function Get_All
-     (Components : Storage) return TECS.EntityVectorPackage.Vector;
+     (Components : Storage) return Tecs.EntityVectorPackage.Vector;
 
    function Get_Cursor (Components : Storage) return Entity_Cursor;
    function Has_Element (Cursor : Entity_Cursor) return Boolean;
    procedure Next (Cursor : in out Entity_Cursor);
-   function Get_Entity (Cursor : Entity_Cursor) return TECS.EntityId;
+   function Get_Entity (Cursor : Entity_Cursor) return Tecs.EntityId;
    function Get_Component_Data (Cursor : Entity_Cursor) return Element_Type;
 
    function Added
-     (Components : in out Storage; Id : TECS.EntityId) return Boolean;
+     (Components : in out Storage; Id : Tecs.EntityId) return Boolean;
    function Updated
-     (Components : in out Storage; Id : TECS.EntityId) return Boolean;
+     (Components : in out Storage; Id : Tecs.EntityId) return Boolean;
    function Removed
-     (Components : in out Storage; Id : TECS.EntityId) return Boolean;
+     (Components : in out Storage; Id : Tecs.EntityId) return Boolean;
 
    procedure Flush (Components : in out Storage);
 
 private
    package Component_Storage is new Ada.Containers.Ordered_Maps
-     (Key_Type => TECS.EntityId, Element_Type => Element_Type);
+     (Key_Type => Tecs.EntityId, Element_Type => Element_Type);
 
    package EntityId_Set is new Ada.Containers.Ordered_Sets
-     (Element_Type => TECS.EntityId);
+     (Element_Type => Tecs.EntityId);
 
    type Storage is record
       Data            : Component_Storage.Map;
@@ -60,4 +60,4 @@ private
       Data : Component_Storage.Cursor;
    end record;
 
-end TECS.Component.DataStorage;
+end Tecs.Component.DataStorage;

@@ -1,4 +1,4 @@
-package body TECS.State is
+package body Tecs.State is
 
    procedure Init (State : in out Storage; Next : State_Type) is
    begin
@@ -78,4 +78,4 @@ package body TECS.State is
       end if;
    end Flush;
 
-end TECS.State;
+end Tecs.State;

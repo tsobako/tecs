@@ -2,7 +2,7 @@ with Ada.Containers.Vectors;
 
 generic
    type Command_Type is private;
-package TECS.Commands is
+package Tecs.Commands is
 
    type Queue is private;
 
@@ -12,7 +12,7 @@ package TECS.Commands is
    subtype Commands_Vector is Commands_Queue.Vector;
 
    procedure Push (Commands : in out Queue; Command : Command_Type);
-   function Exists (Commands: Queue) return Boolean;
+   function Exists (Commands : Queue) return Boolean;
    function Get_All (Commands : Queue) return Commands_Vector;
    procedure Flush (Commands : in out Queue);
 
@@ -22,4 +22,4 @@ private
       Data : Commands_Vector;
    end record;
 
-end TECS.Commands;
+end Tecs.Commands;

@@ -1,2 +1,2 @@
-package TECS.Component is
-end TECS.Component;
+package Tecs.Component is
+end Tecs.Component;

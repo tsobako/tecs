@@ -1,4 +1,4 @@
-package body TECS.Events is
+package body Tecs.Events is
 
    procedure Add (S : in out Storage; E : Event_Type) is
    begin
@@ -33,4 +33,4 @@ package body TECS.Events is
       return False;
    end Contains;
 
-end TECS.Events;
+end Tecs.Events;

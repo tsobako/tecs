@@ -2,7 +2,7 @@ with Ada.Containers.Vectors;
 
 generic
    type Event_Type is private;
-package TECS.Events is
+package Tecs.Events is
 
    type Storage is private;
 
@@ -23,4 +23,4 @@ private
       Buffer  : Events_Storage.Vector;
    end record;
 
-end TECS.Events;
+end Tecs.Events;

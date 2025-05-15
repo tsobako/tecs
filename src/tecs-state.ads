@@ -2,7 +2,7 @@ with Ada.Containers.Vectors;
 
 generic
    type State_Type is (<>);
-package TECS.State is
+package Tecs.State is
 
    type Storage is private;
 
@@ -46,4 +46,4 @@ private
 
    end record;
 
-end TECS.State;
+end Tecs.State;

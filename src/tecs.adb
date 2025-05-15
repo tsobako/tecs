@@ -1,4 +1,4 @@
-package body TECS is
+package body Tecs is
 
    procedure Next_EntityId (Storage : in out EntityStorage; Id : out EntityId)
    is
@@ -51,4 +51,4 @@ package body TECS is
       return Left = Right;
    end EntityIdEquivalent_Elements;
 
-end TECS;
+end Tecs;

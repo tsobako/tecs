@@ -1,4 +1,4 @@
-package body TECS.Commands is
+package body Tecs.Commands is
 
    procedure Push (Commands : in out Queue; Command : Command_Type) is
    begin
@@ -7,7 +7,7 @@ package body TECS.Commands is
 
    function Exists (Commands : Queue) return Boolean is
    begin
-      return not Commands_Queue.Is_Empty(Commands.Data);
+      return not Commands_Queue.Is_Empty (Commands.Data);
    end Exists;
 
    function Get_All (Commands : Queue) return Commands_Vector is
@@ -20,4 +20,4 @@ package body TECS.Commands is
       Commands_Queue.Clear (Commands.Data);
    end Flush;
 
-end TECS.Commands;
+end Tecs.Commands;

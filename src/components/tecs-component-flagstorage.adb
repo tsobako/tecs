@@ -1,23 +1,23 @@
-package body TECS.Component.FlagStorage is
+package body Tecs.Component.FlagStorage is
 
-   procedure Add (Components : in out Storage; Id : TECS.EntityId) is
+   procedure Add (Components : in out Storage; Id : Tecs.EntityId) is
    begin
       Component_Storage.Insert (Components.To_Add, Id);
    end Add;
 
-   function Contains (Components : Storage; Id : TECS.EntityId) return Boolean
+   function Contains (Components : Storage; Id : Tecs.EntityId) return Boolean
    is
    begin
       return Component_Storage.Contains (Components.Data, Id);
    end Contains;
 
    function Get_All
-     (Components : Storage) return TECS.EntityVectorPackage.Vector
+     (Components : Storage) return Tecs.EntityVectorPackage.Vector
    is
-      Result : TECS.EntityVectorPackage.Vector;
+      Result : Tecs.EntityVectorPackage.Vector;
    begin
       for Id of Components.Data loop
-         TECS.EntityVectorPackage.Append (Result, Id);
+         Tecs.EntityVectorPackage.Append (Result, Id);
       end loop;
       return Result;
    end Get_All;
@@ -37,22 +37,22 @@ package body TECS.Component.FlagStorage is
       Component_Storage.Next (Cursor.Data);
    end Next;
 
-   function Get_Entity (Cursor : Entity_Cursor) return TECS.EntityId is
+   function Get_Entity (Cursor : Entity_Cursor) return Tecs.EntityId is
    begin
       return Component_Storage.Element (Cursor.Data);
    end Get_Entity;
 
-   procedure Remove (Components : in out Storage; Id : TECS.EntityId) is
+   procedure Remove (Components : in out Storage; Id : Tecs.EntityId) is
    begin
       Component_Storage.Insert (Components.To_Remove, Id);
    end Remove;
 
-   function Added (Components : Storage; Id : TECS.EntityId) return Boolean is
+   function Added (Components : Storage; Id : Tecs.EntityId) return Boolean is
    begin
       return Component_Storage.Contains (Components.Current_Added, Id);
    end Added;
 
-   function Removed (Components : Storage; Id : TECS.EntityId) return Boolean is
+   function Removed (Components : Storage; Id : Tecs.EntityId) return Boolean is
    begin
       return Component_Storage.Contains (Components.Current_Removed, Id);
    end Removed;
@@ -75,4 +75,4 @@ package body TECS.Component.FlagStorage is
 
    end Flush;
 
-end TECS.Component.FlagStorage;
+end Tecs.Component.FlagStorage;
